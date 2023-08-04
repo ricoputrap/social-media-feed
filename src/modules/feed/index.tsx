@@ -2,8 +2,19 @@ import React from 'react'
 import Header from './components/Header'
 import PostComposer from './components/PostComposer'
 import Posts from './components/Posts'
+import useInit from './hooks/useInit'
+import { TPost, TUser } from './stores/FeedStore/index.types'
 
-const FeedUI: React.FC = () => {
+interface Props {
+  initialData: {
+    users: TUser[],
+    posts: TPost[]
+  }
+}
+
+const FeedUI: React.FC<Props> = ({ initialData }) => {
+  useInit(initialData);
+
   return (
     <div className="
       min-h-screen flex flex-col items-center justify-between pb-5
