@@ -17,7 +17,7 @@ const FeedUI: React.FC<Props> = ({ initialData }) => {
 
   return (
     <div className="
-      min-h-screen flex flex-col items-center justify-between pb-5
+      min-h-screen flex flex-col items-center justify-between pb-5 px-5
     ">
       <div className="max-w-md">
         <Header />
