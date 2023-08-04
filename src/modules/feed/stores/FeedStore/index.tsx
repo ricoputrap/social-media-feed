@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { State, Actions } from "./index.types";
+import { State, Actions, TUser } from "./index.types";
 
 const useFeedStore = create<State & Actions>((set) => ({
   users: [],
@@ -7,7 +7,7 @@ const useFeedStore = create<State & Actions>((set) => ({
   lookupUser: {},
 
   setInitialData(users, posts) {
-    const lookupUser: Record<number, User> = users.reduce((lookup: Record<number, User>, user) => {
+    const lookupUser: Record<number, TUser> = users.reduce((lookup: Record<number, TUser>, user) => {
       lookup[user.id] = user;
       return lookup;
     }, {});
