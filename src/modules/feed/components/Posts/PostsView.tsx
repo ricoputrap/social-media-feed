@@ -1,16 +1,6 @@
 import React from 'react'
+import { PostData } from '../../hooks/useFeed/index.types';
 import Post from '../Post';
-
-type PostData = {
-  id: number;
-  content: string;
-  createdTime: number;
-  likes: number[];
-
-  authorID: number;
-  authorName: string;
-  authorUsername: string;
-}
 
 interface Props {
   posts: PostData[];
@@ -29,6 +19,7 @@ const PostsView: React.FC<Props> = ({ posts }) => {
           authorID={post.authorID}
           authorName={post.authorName}
           authorUsername={post.authorUsername}
+          isNew={post.isNew}
         />
       ))}
     </div>

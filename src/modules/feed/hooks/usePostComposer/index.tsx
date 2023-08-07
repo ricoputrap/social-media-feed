@@ -4,7 +4,7 @@ import { TPost } from '../../stores/FeedStore/index.types';
 
 
 const usePostComposer = () => {
-  const prependPosts = useFeedStore((state) => state.prependPosts);
+  const addNewPost = useFeedStore((state) => state.addNewPost);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const createNewPost = async (authorID: number, content: string) => {
@@ -21,7 +21,7 @@ const usePostComposer = () => {
           likes: [],
           authorID
         }
-        prependPosts([newPost]);
+        addNewPost(newPost);
         setIsSubmitting(false);
         resolve();
       }, 1500);

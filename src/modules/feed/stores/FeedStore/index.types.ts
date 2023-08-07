@@ -12,6 +12,7 @@ export type TPost = {
   createdTime: number;
   authorID: number; // FK to `TUser.id`
   likes: number[]; // contains the ID of users who like the post
+  isNew?: boolean;
 };
 
 export type State = {
@@ -24,6 +25,7 @@ export type State = {
 
 export type Actions = {
   setInitialData: (users: TUser[], posts: TPost[]) => void;
+  addNewPost: (post: TPost) => void;
   prependPosts: (posts: TPost[]) => void;
   appendPosts: (posts: TPost[]) => void;
 }

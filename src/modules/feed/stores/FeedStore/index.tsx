@@ -14,6 +14,22 @@ const useFeedStore = create<State & Actions>((set) => ({
 
     set({ users, posts, lookupUser })
   },
+  addNewPost(post) {
+    set(prevState => ({
+      posts: [{ ...post, isNew: true }, ...prevState.posts]
+    }))
+
+    setTimeout(() => {
+      set(prevState => {
+        const index = prevState.posts.findIndex((aPost) => aPost.id === post.id);
+        if (index === -1) return {};
+
+        const posts = [...prevState.posts];
+        posts[index].isNew = false;
+        return { posts }
+      })
+    }, 3000)
+  },
   prependPosts(posts) {
     set(prevState => ({
       posts: [...posts, ...prevState.posts]

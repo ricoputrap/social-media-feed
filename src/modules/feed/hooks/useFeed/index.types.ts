@@ -7,4 +7,5 @@ export type PostData = {
   authorID: number;
   authorName: string;
   authorUsername: string;
+  isNew?: boolean;
 }

@@ -12,6 +12,7 @@ interface Props {
   authorID: number;
   authorName: string;
   authorUsername: string;
+  isNew?: boolean;
 }
 
 const Post: React.FC<Props> = ({
@@ -20,26 +21,30 @@ const Post: React.FC<Props> = ({
   createdTime,
   likes,
   authorName,
-  authorUsername
+  authorUsername,
+  isNew
 }) => {
   return (
-    <div className="post-item p-4 border-gray-200 border-2 rounded-xl">
-      <div>
-        <div className="flex items-center gap-1">
-          <Image
-            src={PROFILE_PIC_URL}
-            alt="profile-pic"
-            className="w-8 h-8 object-cover rounded-full mr-1"
-            width={30}
-            height={30}
-          />
-          <p className="text-sm font-semibold">
-            {authorName}
-          </p>
-          <p className="text-sm text-gray-500">
-            @{authorUsername}
-          </p>
-        </div>
+    <div className={`
+      ${isNew && "animate-new-post"}
+      min-h-21 post-item p-4 pt-3
+      border-gray-200 border-2
+      rounded-xl
+    `}>
+      <div className="flex items-center gap-1">
+        <Image
+          src={PROFILE_PIC_URL}
+          alt="profile-pic"
+          className="w-8 h-8 object-cover rounded-full mr-1"
+          width={30}
+          height={30}
+        />
+        <p className="text-sm font-semibold">
+          {authorName}
+        </p>
+        <p className="text-sm text-gray-500">
+          @{authorUsername}
+        </p>
       </div>
 
       <p className="text-sm ml-10">

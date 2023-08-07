@@ -19,7 +19,7 @@ const FeedUI: React.FC<Props> = ({ initialData }) => {
     <div className="
       min-h-screen flex flex-col items-center justify-between pb-5 px-5
     ">
-      <div className="max-w-md">
+      <div className="max-w-md w-full">
         <Header />
         <div className="flex flex-col gap-6">
           <PostComposer authorID={1} />

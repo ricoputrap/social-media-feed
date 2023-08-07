@@ -10,7 +10,7 @@ const useFeed = (): ReturnValue => {
   const lookupUser = useFeedStore((state) => state.lookupUser);
   const posts = useFeedStore((state) => state.posts);
 
-  const allPosts = posts.map((post) => {
+  const allPosts: PostData[] = posts.map((post) => {
     const user: TUser = lookupUser[post.authorID];
     return {
       id: post.id,
@@ -20,7 +20,8 @@ const useFeed = (): ReturnValue => {
 
       authorID: user.id,
       authorName: user.name,
-      authorUsername: user.username
+      authorUsername: user.username,
+      isNew: post.isNew
     }
   })
 
