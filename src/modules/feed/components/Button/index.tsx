@@ -1,21 +1,21 @@
 import React from 'react'
 import { CgSpinner } from "react-icons/cg"
 
-type Variant = "primary" | "secondary";
+export type Variant = "primary" | "secondary";
 
 interface Props {
   variant: Variant;
   label: string;
-  isLoading: boolean;
+  isLoading?: boolean;
   onClick: () => void;
 }
 
-const COLOR: Record<Variant, string> = {
+export const COLOR: Record<Variant, string> = {
   primary: "bg-blue-400 text-white",
   secondary: "bg-white text-blue-400"
 }
 
-const Button: React.FC<Props> = ({ variant, label, isLoading, onClick }) => {
+const Button: React.FC<Props> = ({ variant, label, isLoading = false, onClick }) => {
   return (
     <button
       className={`
